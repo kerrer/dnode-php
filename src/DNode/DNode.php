@@ -44,7 +44,8 @@ class DNode extends EventEmitter
             $this->emit('error', array($e));
 
             if (!count($this->listeners('error'))) {
-                trigger_error((string) $e, E_USER_ERROR);
+                //trigger_error((string) $e, E_USER_ERROR);
+                throw $e;
             }
 
             return;
